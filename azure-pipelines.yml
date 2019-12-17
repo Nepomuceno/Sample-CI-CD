@@ -28,15 +28,15 @@ stages:
 
   jobs:
     -job: deploy
-    steps:
-    - task: AzureRmWebAppDeployment@4
-      inputs:
-        ConnectionType: 'AzureRM'
-        azureSubscription: 'Gabriel-Internal(0e9fb02c-62eb-4d75-a174-1d1f01d6dc27)'
-        appType: 'webAppLinux'
-        WebAppName: 'ci-demo-cd'
-        deployToSlotOrASE: true
-        ResourceGroupName: 'ci-deploy'
-        SlotName: 'dev'
-        packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-        RuntimeStack: 'DOTNETCORE|LTS'    
+      steps:
+      - task: AzureRmWebAppDeployment@4
+        inputs:
+          ConnectionType: 'AzureRM'
+          azureSubscription: 'Gabriel-Internal(0e9fb02c-62eb-4d75-a174-1d1f01d6dc27)'
+          appType: 'webAppLinux'
+          WebAppName: 'ci-demo-cd'
+          deployToSlotOrASE: true
+          ResourceGroupName: 'ci-deploy'
+          SlotName: 'dev'
+          packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+          RuntimeStack: 'DOTNETCORE|LTS'    
